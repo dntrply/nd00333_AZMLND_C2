@@ -1,8 +1,9 @@
 # Operationalizing Machine Learning
 
-This project comprises of operationalizing Machine Leanning in Microsoft Azure.
+The running project code is in the file operationalizing_ml.ipynb which is based on the starter code file starter_files/aml-pipelines-with-automated-machine-learning-step.ipynb
+This project comprises of operationalizing Machine Learning in Microsoft Azure.
 A classification model is trained and deployed. The deployed model endpoint URI can later be used to make predictions
-A pipline is also created, published and consumed. The published pipeline endpoint URI can later be used to initiate a new run.
+A pipeline is also created, published and consumed. The published pipeline endpoint URI can later be used to initiate a new run.
 
 ## Architectural Diagram
 ![image](https://user-images.githubusercontent.com/17679107/128580722-fe579b49-1fbb-4416-bcac-cdd357cb0942.png)
@@ -20,7 +21,7 @@ This step allows a model to be trained across different algorithms/parameters an
 ![image](https://user-images.githubusercontent.com/17679107/128581444-5b38a755-b62a-411a-8a31-b2d18c7464ef.png)
 
 2. A Compute cluster is created if it does not already exist
-3. An AtoML confiuration is specified with key information such as the best netric to use, the column label, etc.
+3. An AtoML configuration is specified with key information such as the best metric to use, the column label, etc.
 4. A run is then submitted to train the model. Once the experiment/run is completed, the best model is identified.
 
 ![image](https://user-images.githubusercontent.com/17679107/128581670-9ea69c86-5994-435e-8dd4-fada48bf36c0.png)
@@ -28,10 +29,10 @@ This step allows a model to be trained across different algorithms/parameters an
 ![image](https://user-images.githubusercontent.com/17679107/128584944-13b9800a-534d-4b5f-9ce4-e3107953b6b8.png)
 
 ## Step 3: Deploy the best model
-In this step, we use the Azure ML Studio U/I t odeploy the best model. We use ACI (Azure Container Instance) with authentication enabled.
+In this step, we use the Azure ML Studio U/I to deploy the best model. We use ACI (Azure Container Instance) with authentication enabled.
 
 ## Step 4. Enable logging
-Logging helps troublshoot and understanding the workflow. It also helps with quantifying performance at various stages of the execution. The WebServcie is used to enable/disable Application Insights.
+Logging helps troubleshoot and understanding the workflow. It also helps with quantifying performance at various stages of the execution. The WebServcie is used to enable/disable Application Insights.
 
 ![image](https://user-images.githubusercontent.com/17679107/128584962-10ebb48e-dcce-460c-a2df-a0c6e1814db0.png)
 
@@ -42,7 +43,7 @@ Sample output of the logs that are available once application insight is enabled
 
 
 ## Step 5. Swagger Doc
-Once a model is published, AzureML exposes a swagger.json file. This can be consumed by Swagger and helps with the documentation of the methods that are exposed together with the JSON payloads for input/output. This makes it much easier to start consuming the endpoint.
+Once a model is published, Azure ML exposes a swagger.json file. This can be consumed by Swagger and helps with the documentation of the methods that are exposed together with the JSON payloads for input/output. This makes it much easier to start consuming the endpoint.
 
 ![image](https://user-images.githubusercontent.com/17679107/128585201-c30da670-2dfd-4198-b78c-af8c0af81f7a.png)
 ![image](https://user-images.githubusercontent.com/17679107/128585210-7c62272d-7e88-4e33-8b1f-cf5998eba113.png)
@@ -58,7 +59,7 @@ The model endpoint is consumed by making a REST API call to the scoring URI. If 
 
 
 ## Step 7. Create and publish pipeline
-1. A pipeline is created when it is "run in the context of an experiment. THe pipeline can also be visualized in the Pipelines section of AzureML Studio
+1. A pipeline is created when it is "run in the context of an experiment. The pipeline can also be visualized in the Pipelines section of Azure ML Studio
 
 ![image](https://user-images.githubusercontent.com/17679107/128585471-e8f37b05-b641-43d0-9f00-e2eee0412377.png)
 
@@ -70,15 +71,15 @@ The model endpoint is consumed by making a REST API call to the scoring URI. If 
 
 ![image](https://user-images.githubusercontent.com/17679107/128585585-813d1250-08ff-447f-b964-4412041bbf33.png)
 
-4. Once published, the Pipeline Details tab will show the published pipeline status (Active in this case) and also the pieline REST endpoint that can be called to "run" the pipeline.
+4. Once published, the Pipeline Details tab will show the published pipeline status (Active in this case) and also the pipeline REST endpoint that can be called to "run" the pipeline.
 
 ![image](https://user-images.githubusercontent.com/17679107/128585501-d1cca096-e3ca-4adf-83d5-08a9c1f6a34d.png)
 
-5. The RunDetails widget asychronously displays the run detais in the Notebook as the pipeline run progresses.
+5. The RunDetails widget asynchronously displays the run details in the Notebook as the pipeline run progresses.
 
 ![image](https://user-images.githubusercontent.com/17679107/128585661-f524f924-e6f1-4129-9e79-3586013ecf4c.png)
 
-6. A pipeline run stats (Scheduled, Completed, etc.) can be reviewed in AzureML Studio in the Pipelines section
+6. A pipeline run stats (Scheduled, Completed, etc.) can be reviewed in Azure ML Studio in the Pipelines section
 
 ![image](https://user-images.githubusercontent.com/17679107/128585674-8a9a075b-59d7-4db3-8cff-f948926f3c83.png)
 
